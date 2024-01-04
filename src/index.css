@@ -2,7 +2,7 @@ html,
 body {
   height: 100%;
   margin: 0;
-  font-family: "Roboto", Arial, sans-serif;
+  font-family: 'Roboto', Arial, sans-serif;
   font-size: 1rem;
   color: #353c4e;
   background: #f0f2f4;
@@ -10,4 +10,16 @@ body {
 
 #root {
   height: 100%;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.folder-children {
+  margin-left: 1rem;
+}
+
+.selected-file {
+  background-color: cyan;
 }

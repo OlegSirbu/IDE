@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FileNode renders correctly and matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="pointer "
+  >
+    📄 exampleFile.txt
+  </div>
+</DocumentFragment>
+`;
+
+exports[`FileNode renders correctly when selected and matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="pointer selected-file"
+  >
+    📄 exampleFile.txt
+  </div>
+</DocumentFragment>
+`;

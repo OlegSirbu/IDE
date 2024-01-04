@@ -1,4 +1,4 @@
-import { File } from './Workspace/WorkspaceContext';
+import { File } from './Workspace/Workspace';
 
 export default [
   {
