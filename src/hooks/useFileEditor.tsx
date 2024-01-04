@@ -1,15 +1,15 @@
 import { useState, useCallback, useEffect } from 'react';
 import { getLanguageFromExtension, findFileNode, debounce } from '../utils';
 
-export function useFileEditor(initialFiles) {
-  const [selectedFile, setSelectedFile] = useState({
+export function useFileEditor(initialFiles: FileNodeStructure): UseFileEditorHook {
+  const [selectedFile, setSelectedFile] = useState<SelectedFile>({
     path: '',
     contents: '',
     language: 'plaintext'
   });
 
   const handleFileSelect = useCallback(
-    fullPath => {
+    (fullPath: string) => {
       const fileNode = findFileNode(initialFiles, fullPath);
 
       setSelectedFile({
@@ -21,7 +21,7 @@ export function useFileEditor(initialFiles) {
     [initialFiles]
   );
 
-  const loadFileContents = useCallback((fullPath, defaultContents) => {
+  const loadFileContents = useCallback((fullPath: string, defaultContents: string) => {
     const savedContents = localStorage.getItem(fullPath);
     return savedContents !== null ? savedContents : defaultContents;
   }, []);
@@ -39,7 +39,7 @@ export function useFileEditor(initialFiles) {
     }
   }, [selectedFile.contents, debouncedSave]);
 
-  const handleEditorChange = (newContents:string) => {
+  const handleEditorChange = (newContents: string) => {
     setSelectedFile(prev => ({ ...prev, contents: newContents || '' }));
   }
 

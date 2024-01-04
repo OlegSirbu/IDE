@@ -37,3 +37,9 @@ interface MonacoEditor {
 }
 
 type Structure = Record<string, FolderNodeProps | FileNodeStructure>;
+
+interface UseFileEditorHook {
+  selectedFile: SelectedFile;
+  handleFileSelect: (fullPath: string) => void;
+  handleEditorChange: (newContents: string) => void;
+}
