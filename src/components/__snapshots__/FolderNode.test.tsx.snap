@@ -2,10 +2,12 @@
 
 exports[`FolderNode renders correctly and matches snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="pointer"
-  >
-    📁 root
+  <div>
+    <div
+      class="pointer"
+    >
+      📁 root
+    </div>
   </div>
 </DocumentFragment>
 `;
