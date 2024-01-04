@@ -1,4 +1,7 @@
-export const findFileNode = (structure, fullPath) => {
+export const findFileNode = (
+  structure: FileNodeStructure,
+  fullPath: string
+): FileNodeStructure => {
   const parts = fullPath.split('/');
   let current = structure;
 
@@ -13,7 +16,10 @@ export const findFileNode = (structure, fullPath) => {
   return current;
 };
 
-export const sortFiles = (a, b) => {
+export const sortFiles = (
+  a: [string, FileNodeStructure],
+  b: [string, FileNodeStructure]
+): number => {
   const typeA = a[1].type;
   const typeB = b[1].type;
   const nameA = a[0].toLowerCase();
@@ -25,8 +31,11 @@ export const sortFiles = (a, b) => {
   return nameA.localeCompare(nameB);
 };
 
-export const parseFileStructure = (files, basePath = '') => {
-  const structure = {};
+export const parseFileStructure = (
+  files: SelectedFile[],
+  basePath: string = ''
+): FileNodeStructure => {
+  const structure = <FileNodeStructure>{};
 
   files.forEach(file => {
     const parts = file.path.split('/');
@@ -54,7 +63,7 @@ export const parseFileStructure = (files, basePath = '') => {
   return structure;
 };
 
-const sortStructure = node => {
+const sortStructure = (node: FileNodeStructure) => {
   if (node.type === 'folder') {
     const sortedChildren = Object.entries(node.children).reduce(
       (acc, [key, value]) => {

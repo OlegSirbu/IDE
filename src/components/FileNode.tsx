@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FileNode: React.FC<FileNode> = ({
+const FileNode: React.FC<FileNodeProps> = ({
   name,
   isSelected,
   fullPath,

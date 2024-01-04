@@ -4,23 +4,29 @@ interface SelectedFile {
   language: string;
 }
 
-interface FileNode {
+interface FileNodeProps {
   name: string;
   fullPath: string;
   isSelected: boolean;
   onSelect: (name: string) => void;
 }
 
+enum TypeFiles {
+  file = 'file',
+  folder = 'folder'
+}
+
 interface FileNodeStructure {
-  type: 'file' | 'folder';
+  type: TypeFiles;
   fullPath?: string;
+  contents: string;
   children?: Record<string, FileNodeStructure>;
 }
 
-interface FolderNode {
+interface FolderNodeProps {
   name: string;
-  children: Record<string, FileNodeStructure>;
   selectedFilePath: string;
+  children: Record<FileNodeProps | FileNodeStructure>;
   onSelectFile: (fullPath: string) => void;
 }
 
@@ -29,3 +35,5 @@ interface MonacoEditor {
   value: string;
   onChange: (newContents: string | undefined) => void;
 }
+
+type Structure = Record<string, FolderNodeProps | FileNodeStructure>;

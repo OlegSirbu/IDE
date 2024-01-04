@@ -36,6 +36,7 @@ const App = () => {
 
   const handleFileSelect = (fullPath: string) => {
     const fileNode = findFileNode(fileStructure, fullPath);
+
     setSelectedFile({
       path: fullPath,
       contents: loadFileContents(fullPath, fileNode.contents),
@@ -58,15 +59,17 @@ const App = () => {
   return (
     <Box height="100vh" display="flex">
       <Grid container spacing={2}>
-        <Grid item xs={4} md={4}>
-          <FolderNode
-            name="root"
-            children={fileStructure}
-            selectedFilePath={selectedFile.path}
-            onSelectFile={handleFileSelect}
-          />
+        <Grid item xs={4} md={3}>
+          <div data-testid="file-list">
+            <FolderNode
+              name="root"
+              children={fileStructure}
+              selectedFilePath={selectedFile.path}
+              onSelectFile={handleFileSelect}
+            />
+          </div>
         </Grid>
-        <Grid item xs={8} md={8}>
+        <Grid item xs={8} md={9} data-testid="editor">
           <MonacoEditor
             language={selectedFile.language}
             value={selectedFile.contents}

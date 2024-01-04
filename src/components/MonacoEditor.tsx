@@ -11,7 +11,7 @@ const MonacoEditor: React.FC<MonacoEditor> = ({
       language={language}
       value={value}
       onChange={onChange}
-      theme=""
+      theme="light"
       options={{
         minimap: { enabled: true },
         automaticLayout: true

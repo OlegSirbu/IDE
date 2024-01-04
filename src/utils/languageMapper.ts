@@ -8,7 +8,7 @@ const extensionToLanguageMap = {
   css: 'css'
 };
 
-export const getLanguageFromExtension = filename => {
+export const getLanguageFromExtension = (filename: string): string => {
   const extension = filename.split('.').pop();
   return extensionToLanguageMap[extension] || 'plaintext';
 };
